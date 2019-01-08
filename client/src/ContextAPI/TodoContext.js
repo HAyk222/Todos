@@ -136,7 +136,8 @@ class TodoProvider extends Component {
           deleteTodo: this.deleteTodo,
           handleChecked: this.handleChecked,
           addValue: this.state.addValue,
-          addTodo: this.addTodo
+          addTodo: this.addTodo,
+          response: this.state.response
         }}
       >
         {this.props.children}
