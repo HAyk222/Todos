@@ -1,31 +1,26 @@
 import React from 'react'
-import {TodosProvider, TodoItemConsumer} from '../ContextAPI/TodosProvider'
-import {TodoConsumer} from '../ContextAPI/TodoContext'
+import {connect} from 'react-redux'
+import {TodoItemConsumer} from '../ContextAPI/TodosProvider'
+import {TodosProvider} from '../ContextAPI/TodosProvider'
 import Todo from './Todo'
 import UpdateTodo from './Forms/UpdateTodo'
 
-const Todos = () => {
+const Todos = (props) => {
 	return (
 		<TodosProvider>
-			<TodoConsumer>
-      	{
-      		({ edit }) =>{
-	      		return (
-	      			<TodoItemConsumer>
-	      			{
-	      				({item}) => {
-	      					return (
-	      						edit === item._id ? <UpdateTodo /> : <Todo />
-	      					)
-	      				}
-	      			}
-	      			</TodoItemConsumer>
-	      		) 
-	      	} 
-      	}
-      </TodoConsumer>
+			<TodoItemConsumer>
+			{
+				({item}) => {
+					return (
+						props.edit === item._id ? <UpdateTodo /> : <Todo />
+					)
+				}
+			}
+			</TodoItemConsumer>
     </TodosProvider>
 	)
 }
 
-export default Todos
+export default connect(
+	(state) => ({edit: state.todo.edit})
+)(Todos)

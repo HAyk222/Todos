@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"cd backend && npm start\" \"cd client && npm start\"",
-    "preinstall": "npm install ./backend && npm install ./client"
+    "preinstall": "npm install ./client && npm install ./backend"
   },
   "keywords": [],
   "author": "",

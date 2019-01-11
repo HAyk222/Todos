@@ -72,8 +72,7 @@ router.post('/updateData', (req, res) => {
       if (err) {
         res.send('error');
       } else {
-        console.log(newTodo);
-        res.send('Data has successfully updated')
+        res.json(newTodo)
       }
   });
 })
@@ -87,8 +86,7 @@ router.post('/checkedData', (req, res) => {
       if (err) {
         res.send('error');
       } else {
-        console.log(newTodo);
-        res.send('Data has successfully updated')
+        res.json(newTodo)
       }
   });
 })
@@ -100,7 +98,7 @@ router.post('/deleteData', (req, res) => {
       if(err) {
         res.send('error removing')
       } else {
-        res.send('Data has successfully removed')
+        res.json(item)
       }
   });
 });
